@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @movies = Movie.released
   end
 
   def show
@@ -23,7 +23,6 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie.update(movie_params)
     @movie = Movie.new(movie_params)
     @movie.save
     redirect_to @movie
